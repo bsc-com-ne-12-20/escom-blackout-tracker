@@ -1,5 +1,5 @@
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
-	# Add your app's URL patterns here
+	
 ]

@@ -10,11 +10,11 @@ class Groups_and_Area(models.Model):
     def __str__(self):
         return self.Group_ID
 
-# class Blackout_Schedule(models.Model):
-#     Schedule_ID = models.CharField(max_length=10, primary_key=True)
-#     Group = models.ForeignKey(Groups_and_Area, on_delete=models.CASCADE)
-#     Start_Time = models.DateTimeField()
-#     End_Time = models.DateTimeField()
+class BlackoutSchedule(models.Model):
+    date = models.DateField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    groups = models.ManyToManyField(Groups_and_Area, related_name='schedules')
 
-#     def __str__(self):
-#         return self.Schedule_ID
+    def __str__(self):
+        return f"{self.date} {self.start_time}-{self.end_time}"
